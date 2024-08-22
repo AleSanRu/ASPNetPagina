@@ -1,0 +1,33 @@
+﻿@model Login_Pagina.Models.Producto
+
+@{
+    ViewData["Title"] = "Editar Producto";
+}
+
+<h1>Editar Producto</h1>
+
+<h4>Producto</h4>
+<hr />
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="NombreProducto" class="control-label"></label>
+        <input asp-for="NombreProducto" class="form-control" />
+        <span asp-validation-for="NombreProducto" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion" class="control-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Precio" class="control-label"></label>
+        <input asp-for="Precio" class="form-control" />
+        <span asp-validation-for="Precio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>

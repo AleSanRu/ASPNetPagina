@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Login_Pagina.Models.Producto>
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<h1>Lista de Productos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Idproducto" class="btn btn-info">Detalles</a>
+                    <a asp-action="Edit" asp-route-id="@item.Idproducto" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Idproducto" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

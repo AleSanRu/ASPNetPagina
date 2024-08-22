@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Login_Pagina.Models.Compra>
+
+@{
+    ViewData["Title"] = "Lista de Compras";
+}
+
+<h1>Lista de Compras</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nueva Compra</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Usuario</th>
+            <th>Fecha de Compra</th>
+            <th>Cantidad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Producto.NombreProducto  <!-- Ajusta el nombre según tu modelo -->
+                </td>
+                <td>
+                    @item.Usuario.NombreUsuario  <!-- Ajusta el nombre según tu modelo -->
+                </td>
+                <td>
+                    @item.FechaCompra.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.Cantidad
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Idcompra" class="btn btn-info">Detalles</a>
+                    <a asp-action="Edit" asp-route-id="@item.Idcompra" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Idcompra" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
